@@ -5,10 +5,10 @@ export default class DatamatrixService {
     this.recognizerPath = process.env.RECOGNIZER_PATH;
   }
 
-  async detect(path, params) {
+  async detect(paths, params) {
     const child = spawn('python3', [
       this.recognizerPath,
-      path,
+      paths.join(","),
     ]);
 
     return new Promise((resolve, reject) => {

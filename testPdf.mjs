@@ -7,14 +7,14 @@ dotenv.config({ path: '.env' });
 
 const executablePath = process.argv[1];
 const executableDirectory = path.dirname(executablePath);
-const pdfFile = path.resolve(executableDirectory, 'files/test.pdf');
+const pdfFile = path.resolve(executableDirectory, 'files/test2.pdf');
 const recognizer = new Recognizer();
 
 const params = {
   "type": RecognitionType.IDENTICAL,
-  'segment': { 'x': 2, 'y': 6 }
+  'segment': { 'x': 1, 'y': 6 }
 };
 
-const res = await recognizer.recognize(pdfFile, params);
+const res = await recognizer.recognize([pdfFile], params);
 
 console.log(res);

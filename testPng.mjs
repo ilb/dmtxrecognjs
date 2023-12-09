@@ -7,7 +7,7 @@ dotenv.config({ path: '.env' });
 
 const executablePath = process.argv[1];
 const executableDirectory = path.dirname(executablePath);
-const pdfFile = path.resolve(executableDirectory, 'files/01.png');
+const pdfFile = path.resolve(executableDirectory, 'files/21.jpg');
 const recognizer = new Recognizer();
 
 const params = {
@@ -15,6 +15,6 @@ const params = {
   'segment': { 'x': 1, 'y': 6 }
 };
 
-const res = await recognizer.recognize(pdfFile, params);
+const res = await recognizer.recognize([pdfFile], params);
 
 console.log(res);
